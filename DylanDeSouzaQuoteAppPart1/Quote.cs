@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DylanDeSouzaQuoteAppPart1
 {
@@ -14,6 +7,7 @@ namespace DylanDeSouzaQuoteAppPart1
     {
         string message;
         string author;
+        bool favourite = false;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -24,6 +18,19 @@ namespace DylanDeSouzaQuoteAppPart1
         {
             Message = message;
             Author = author;
+        }
+
+        public bool Favourite
+        {
+            get => favourite;
+            set
+            {
+                if (favourite != value)
+                {
+                    favourite = value;
+                    NotifyPropertyChanged();
+                }
+            }
         }
 
         public string Message
